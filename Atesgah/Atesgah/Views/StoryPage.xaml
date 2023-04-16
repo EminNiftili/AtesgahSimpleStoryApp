@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Atesgah.Views.StoryPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <CarouselView x:Name="listView" Margin="0, 20, 0, 0" HeightRequest="120" ItemsSource="{Binding Stories}"
+                          Loop="False" PeekAreaInsets="140" IsBounceEnabled="True" >
+                <CarouselView.ItemTemplate HeightRequest="100" WidthRequest="100">
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical" Padding="10">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OpenStory" CommandParameter="{Binding Id}"/>
+                            </StackLayout.GestureRecognizers>
+                            
+                            <Frame BorderColor="{Binding WatchColor}" CornerRadius="50">
+                                <Image Source="{Binding CoverPhoto}" WidthRequest="50" HeightRequest="50"
+                                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            </Frame>
+                            <Label Text="{Binding StoryOwnerName}" TextColor="Black"
+                                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Atesgah.Views.SubViews.StoryViewer"
+             xmlns:kit="clr-namespace:LibVLCSharp.Forms.Shared;assembly=LibVLCSharp.Forms"
+             BackgroundColor="Firebrick">
+  <ContentView.Content>
+
+        <AbsoluteLayout TabIndex="10000" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <kit:MediaPlayerElement x:Name="video"
+                                    
+                                    MediaPlayer="{Binding MediaPlayer}" 
+                                    LibVLC="{Binding LibVLC}"
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="FillAndExpand">
+                <StackLayout x:Name="swipeScreen" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <StackLayout.GestureRecognizers>
+                        <SwipeGestureRecognizer Swiped="SwipedStory" Direction="Left"/>
+                        <SwipeGestureRecognizer Swiped="SwipedStory" Direction="Right"/>
+                        <SwipeGestureRecognizer Swiped="SwipedStory" Direction="Down"/>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout HeightRequest="5" HorizontalOptions="FillAndExpand"
+                           VerticalOptions="End"
+                           BackgroundColor="Transparent"
+                                 Padding="30">
+                        <ProgressBar x:Name="progress" 
+                                     ProgressColor="#B1B1B1"
+                                     Progress="{Binding Progress}"></ProgressBar>
+                    </StackLayout>
+                </StackLayout>
+            </kit:MediaPlayerElement>
+        </AbsoluteLayout>
+    </ContentView.Content>
+</ContentView>
