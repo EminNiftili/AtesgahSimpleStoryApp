@@ -81,5 +81,10 @@ namespace Atesgah.Views.SubViews
                     }
             }
         }
+
+        private void PressPause(object sender, EventArgs e)
+        {
+            ViewModel.PlayOrPause();
+        }
     }
 }

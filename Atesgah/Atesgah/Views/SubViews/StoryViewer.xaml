@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Atesgah.Views.SubViews.StoryViewer"
              xmlns:kit="clr-namespace:LibVLCSharp.Forms.Shared;assembly=LibVLCSharp.Forms"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              BackgroundColor="Firebrick">
   <ContentView.Content>
 
@@ -18,6 +19,7 @@
                         <SwipeGestureRecognizer Swiped="SwipedStory" Direction="Left"/>
                         <SwipeGestureRecognizer Swiped="SwipedStory" Direction="Right"/>
                         <SwipeGestureRecognizer Swiped="SwipedStory" Direction="Down"/>
+                        <TapGestureRecognizer Tapped="PressPause" NumberOfTapsRequired="2"/>
                     </StackLayout.GestureRecognizers>
                     <StackLayout HeightRequest="5" HorizontalOptions="FillAndExpand"
                            VerticalOptions="End"

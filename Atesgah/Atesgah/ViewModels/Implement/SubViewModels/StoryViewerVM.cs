@@ -14,6 +14,7 @@ namespace Atesgah.ViewModels.Implement.SubViewModels
     //StoryViewer View Model or StoryViewerVM
     public class StoryViewerVM : ViewVM<StoryViewer, StoryPage>, IDisposable
     {
+        private bool _isPause = false;
         private bool _isRecursiveFlag = true;
         private StoryModel story;
 
@@ -198,6 +199,27 @@ namespace Atesgah.ViewModels.Implement.SubViewModels
             NextStory = null;
             PreviousStory = null;
             CloseStory = null;
+        }
+
+        public void PlayOrPause()
+        {
+            if (_isPause)
+            {
+                _isPause = !_isPause;
+                _isRecursiveFlag = true;
+                _timer.Start();
+                MediaPlayer.Play();
+            }
+            else
+            {
+                _isPause = !_isPause;
+                _isRecursiveFlag = false;
+                _timer.Stop();
+                if (MediaPlayer.CanPause)
+                {
+                    MediaPlayer.Pause();
+                }
+            }
         }
     }
 }

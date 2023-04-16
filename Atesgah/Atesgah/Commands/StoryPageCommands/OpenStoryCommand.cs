@@ -16,7 +16,7 @@ namespace Atesgah.Commands.StoryPageCommands
             View = view;
         }
 
-        public override async void Execute(object parameter)
+        public override void Execute(object parameter)
         {
             int id = 0;
             if(!int.TryParse(parameter.ToString(), out id))

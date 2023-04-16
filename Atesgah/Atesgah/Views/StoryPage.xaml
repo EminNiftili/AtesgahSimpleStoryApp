@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Atesgah.Views.StoryPage">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Orientation="Vertical">
             <CarouselView x:Name="listView" Margin="0, 20, 0, 0" HeightRequest="120" ItemsSource="{Binding Stories}"
                           Loop="False" PeekAreaInsets="140" IsBounceEnabled="True" >
                 <CarouselView.ItemTemplate HeightRequest="100" WidthRequest="100">
@@ -23,6 +23,23 @@
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
             </CarouselView>
+            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <StackLayout Orientation="Horizontal" 
+                             VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Label VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                        FontSize="Large" Text="Double Click for Play/Pause story"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Label VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                        FontSize="Large" Text="Swipe right for next story"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Label VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                        FontSize="Large" Text="Swipe left for previous story"/>
+                </StackLayout>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
